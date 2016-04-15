@@ -2,8 +2,9 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-class Restaurant
+class Restaurant(models.Model):
 	lunchgate_id = models.IntegerField()
+
 
 class MealOption(models.Model):
 	restaurant_id = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
