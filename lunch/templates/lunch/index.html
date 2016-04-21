@@ -1,5 +1,13 @@
+{% extends 'lunch/base.html' %}
+
+{% block content %}
+
+<p class="lead">Not sure what to get for lunch?</p>
+
 {% if meal_option and restaurant %}
-	<p>How about a {{ meal_option }} from <a href="{% url 'lunch:restaurant' restaurant.id %}">{{ restaurant }}</a></p>
+	<h1>How about {{ meal_option }} from <a href="{% url 'lunch:restaurant' restaurant.id %}">{{ restaurant }}</a></h1>
 {% else %}
-	<p>Sadly, there are currently no meal options available :(</p>
+	<p class="lead">Sadly, there are currently no meal options available :(</p>
 {% endif %}
+
+{% endblock %}

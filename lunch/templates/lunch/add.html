@@ -1,5 +1,15 @@
+{% extends 'lunch/base.html' %}
+
+{% block content %}
 <h1>Add a meal for {{ restaurant }}</h1>
 <form action="{% url 'lunch:add' restaurant.id %}" method="post">
 	{% csrf_token %}
-	<input type="text" placeholder="e.g. {{suggestion}}">
+
+	<fieldset class="form-group">
+	  <label for="mealOption">Add a meal option</label>
+	  <input type="text" id="mealOption" class="form-control" placeholder="e.g. {{suggestion}}">
+	</fieldset>
+	
+	<input type="submit" class="btn btn-primary" value="Add">
 </form>
+{% endblock %}
