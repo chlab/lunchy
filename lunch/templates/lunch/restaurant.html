@@ -2,8 +2,22 @@
 
 {% block content %}
 
-<h1>Details of restaurant {{ restaurant }}</h1>
-<p>Why not <a href="{% url 'lunch:add' restaurant.id %}">add a meal</a>?</p>
-<a href="{% url 'lunch:index' %}">back</a>
+<div class="card-block">
+	<h4 class="card-title">Details of restaurant {{ restaurant }}</h4>
+</div>
+
+<div class="card-block">
+	<p>Meal options at this place:</p>
+	<ul class="list-group">
+		{% for option in restaurant.mealoption_set.all %}
+			<li class="list-group-item">{{ option.name }}</li>
+		{% endfor %}
+	</ul>
+</div>
+
+<div class="card-block">
+	<a class="card-link" href="{% url 'lunch:add' restaurant.id %}">add another</a>
+	<a class="card-link" href="{% url 'lunch:index' %}">back</a>
+</div>
 
 {% endblock %}

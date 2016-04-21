@@ -1,15 +1,23 @@
 {% extends 'lunch/base.html' %}
 
 {% block content %}
-<h1>Add a meal for {{ restaurant }}</h1>
-<form action="{% url 'lunch:add' restaurant.id %}" method="post">
-	{% csrf_token %}
+<div class="card-block">
+	<h4 class="card-title">Add a meal for {{ restaurant }}</h4>	
 
-	<fieldset class="form-group">
-	  <label for="mealOption">Add a meal option</label>
-	  <input type="text" id="mealOption" class="form-control" placeholder="e.g. {{suggestion}}">
-	</fieldset>
-	
-	<input type="submit" class="btn btn-primary" value="Add">
-</form>
+	<form action="{% url 'lunch:add' restaurant.id %}" method="post">
+		{% csrf_token %}
+
+		<fieldset class="form-group">
+		  <input type="text" id="mealOption" class="form-control" placeholder="e.g. {{suggestion}}">
+		</fieldset>
+		
+	</form>
+
+	<div class="card-block">
+		<a href="#" class="card-link">add</a>
+		<a class="card-link" href="{% url 'lunch:restaurant' restaurant.id %}">back</a>
+	</div>
+</div>
+
+
 {% endblock %}
