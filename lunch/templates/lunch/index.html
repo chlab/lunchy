@@ -1,0 +1,5 @@
+{% if meal_option and restaurant %}
+	<p>How about a {{ meal_option }} from <a href="{% url 'lunch:restaurant' restaurant.id %}">{{ restaurant }}</a></p>
+{% else %}
+	<p>Sadly, there are currently no meal options available :(</p>
+{% endif %}
