@@ -1,1 +1,5 @@
-<p>So you want to add a meal to a restaurant {{ restaurant }}, big deal. Do you want a prize or something?</p>
+<h1>Add a meal for {{ restaurant }}</h1>
+<form action="{% url 'lunch:add' restaurant.id %}" method="post">
+	{% csrf_token %}
+	<input type="text" placeholder="e.g. {{suggestion}}">
+</form>

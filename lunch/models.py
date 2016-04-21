@@ -13,3 +13,7 @@ class MealOption(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 	def __str__(self):
 		return self.name
+
+	@staticmethod
+	def get_random():
+		return MealOption.objects.order_by('?').first()

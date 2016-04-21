@@ -11,7 +11,11 @@ def index(request):
 
 def add(request, restaurant_id):
 	restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
-	return render(request, 'lunch/add.html', {'restaurant': restaurant})
+	suggestion = MealOption.get_random()
+	return render(request, 'lunch/add.html', {
+		'restaurant': restaurant,
+		'suggestion': suggestion
+		})
 
 def restaurant(request, restaurant_id):
 	restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
