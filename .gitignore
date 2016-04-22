@@ -1,2 +1,4 @@
 *.pyc
 settings_secret.py
+node_modules/*
+static/lunch/*.js*
