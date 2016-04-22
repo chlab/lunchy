@@ -5,7 +5,8 @@ body, .card, .list-group-item {
 	margin: 15% auto 0 auto;
 	max-width: 30rem;
 	padding: 1rem 1.5rem;
-	border-color: #fff;;
+	/*border-color: #fff;;*/
+	border-width: 0;
 	color: #fff;
 }
 #app-container .card-title {

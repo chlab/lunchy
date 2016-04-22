@@ -1,0 +1,25 @@
+{% extends 'lunch/base.html' %}
+
+{% block content %}
+<div class="card-block">
+	<h4 class="card-title">Add a restaurant</h4>	
+</div>
+
+<div class="card-block">
+	<form action="{% url 'lunch:add_restaurant' %}" method="post">
+		{% csrf_token %}
+
+		<fieldset class="form-group">
+		  <input type="text" id="restaurant" class="form-control" placeholder="Start typing the name of a restaurant..">
+		</fieldset>
+		
+	</form>
+
+	<div class="card-block">
+		<a href="#" class="card-link">add</a>
+		<a class="card-link" href="{% url 'lunch:index' %}">back</a>
+	</div>
+</div>
+
+
+{% endblock %}

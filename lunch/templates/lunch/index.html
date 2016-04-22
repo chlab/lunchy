@@ -2,16 +2,16 @@
 
 {% block content %}
 
-<div class="card-block">
-	<h4 class="card-title">Not sure what to get for lunch?</h4>
-</div>
-
 {% if meal_option and restaurant %}
+	<div class="card-block">
+		<h4 class="card-title">Not sure what to get for lunch?</h4>
+	</div>
 	<p class="lead">
 		How about {{ meal_option }} from <a href="{% url 'lunch:restaurant' restaurant.id %}">{{ restaurant }}</a>
 	</p>
 {% else %}
 	<p class="lead">Sadly, there are currently no meal options available :(</p>
+	<p class="lead">Start by <a href="{% url 'lunch:add_restaurant' %}">adding one</a>!</p>
 	<!-- todo: link to add restaurants here -->
 {% endif %}
 
