@@ -8,9 +8,15 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
+
+The secret parts of this file were removed so this file can be commited to github.
+Rename settings_secret.py.template in the same dir to settings_secret.py and adjust
+the values there.
+
 """
 
 import os
+from settings_secret import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,14 +25,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7lkwcy9_x5+3(1%-z_%21@u4+^bog3xxlz(xva)0j514n&tl2t'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -71,19 +71,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'lunchy.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'lunchy',
-        'USER': 'lunchy',
-        'PASSWORD': 'ool3Umoh4soh',
-    }
-}
 
 
 # Password validation
