@@ -6,7 +6,7 @@ def index(request):
 	meal = MealOption.objects.order_by('?').first()
 	return render(request, 'lunch/index.html', {
     	'meal_option': meal,
-    	'restaurant': meal.restaurant
+    	'restaurant': getattr(meal, 'restaurant', None)
     	})
 
 def add(request, restaurant_id):
