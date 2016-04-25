@@ -30,6 +30,15 @@ a:active {
 	text-decoration: none;
 }
 
+/**
+ * Typeahead / find-as-you-type styles
+ */
+.twitter-typeahead {
+	width: 100%;
+}
+.form-control.tt-hint {
+	color: #ccc;
+}
 
 /**
  * Sticky footer
