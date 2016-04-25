@@ -2,9 +2,11 @@
 
 {% block content %}
 <div class="card-block">
-	<h4 class="card-title">Add a meal for {{ restaurant }}</h4>	
+	<h4 class="card-title">Add a meal for {{ restaurant }}</h4>
+</div>
+<div class="card-block">
 
-	<form action="{% url 'lunch:add' restaurant.id %}" method="post">
+	<form action="{% url 'lunch:add_meal' restaurant.id %}" method="post">
 		{% csrf_token %}
 
 		<fieldset class="form-group">
