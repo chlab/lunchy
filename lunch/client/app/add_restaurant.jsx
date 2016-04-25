@@ -53,7 +53,7 @@ class App extends React.Component {
 					</fieldset>	
 					<div className="card-block">
 						<a href="#" className="card-link">add</a>
-						<a className="card-link" href="{% url 'lunch:index' %}">back</a>
+						<a className="card-link" href="/">back</a>
 					</div>
 				</div>
 			</div>
