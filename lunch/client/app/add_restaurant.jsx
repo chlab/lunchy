@@ -15,9 +15,12 @@ class App extends React.Component {
 			type: 'place',
 			// @todo get location from geolocation api
 			center: '46.9479739,7.447446799999966',
+			distance: 5000, // in m
 			// @todo move out of this file
 			access_token: '1425312674163488|8Hpa_wPQgRhOFUsGIdKkUO7g3Pk'
 		}
+
+		var categories = ['Restaurant/cafe', 'Bar'];
 
 		// setup bloodhound datasource
 		var fbApi = new Bloodhound({
@@ -27,8 +30,9 @@ class App extends React.Component {
 				wildcard: 'QUERY',
 				url: 'https://graph.facebook.com/v2.6/search?' + $.param(params),
 				transform: function(response) {
-					console.log(_.where(response.data, {category: 'Restaurant/cafe'}))
-					return _.where(response.data, {category: 'Restaurant/cafe'});
+					return _.filter(response.data, function(place) {
+						return _.contains(categories, place.category);
+					});
 				}
 			}
 		});
