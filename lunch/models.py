@@ -3,9 +3,10 @@ from __future__ import unicode_literals
 from django.db import models
 
 class Restaurant(models.Model):
-	lunchgate_id = models.IntegerField()
+	facebook_id = models.IntegerField()
+	name = models.CharField(max_length=100)
 	def __str__(self):
-		return str(self.lunchgate_id)
+		return str(self.facebook_id)
 
 class MealOption(models.Model):
 	restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
