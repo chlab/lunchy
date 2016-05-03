@@ -4,13 +4,13 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 def index(request):
-	# try to get a random meal option
-	meal = MealOption.objects.order_by('?').first()
-	if (meal):
-		restaurant = meal.restaurant
-	# if there are no meals, try to get a restaurant
+	# get a random restaurant
+	restaurant = Restaurant.objects.order_by('?').first()
+	# try to get a random meal, otherwise we'll just say "something" from <restaurant>
+	if (restaurant):
+		meal = restaurant.mealoption_set.order_by('?').first()
 	else:
-		restaurant = Restaurant.objects.order_by('?').first()
+		meal = None
 
 	return render(request, 'lunch/index.html', {
     	'meal_option': meal,
