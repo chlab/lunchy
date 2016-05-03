@@ -7,12 +7,16 @@
 </div>
 
 <div class="card-block">
-	<p>Meal options at this place:</p>
-	<ul class="list-group">
-		{% for option in restaurant.mealoption_set.all %}
-			<li class="list-group-item">{{ option.name }}</li>
-		{% endfor %}
-	</ul>
+	{% if restaurant.mealoption_set|length %}
+		<p>Meal options at this place:</p>
+		<ul class="list-group">
+			{% for option in restaurant.mealoption_set.all %}
+				<li class="list-group-item">{{ option.name }}</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>There are no meal options for this place yet. Do you want to <a class="card-link" href="{% url 'lunch:add_meal' restaurant.id %}">add one</a>?</p>
+	{% endif %}
 </div>
 
 <div class="card-block">
