@@ -22,14 +22,14 @@ def restaurant_detail(request, restaurant_id):
 
 	# save meal option
 	if ('meal_option' in request.POST):
-		meal = MealOption(restaurant=restaurant, name=request.POST['meal_option'])
-		meal.save()
+		restaurant.mealoption_set.create(name=request.POST['meal_option'])
 		
 	return render(request, 'lunch/restaurant.html', {
 		'restaurant': restaurant,
 		'suggestion': MealOption.get_random()
 		})
 
+# todo: check for facebook_id or set to null
 def add_restaurant(request):
 	# save restaurant and redirect to index
 	if ('restaurant' in request.POST and 'facebook_id' in request.POST):
