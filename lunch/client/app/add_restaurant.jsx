@@ -43,8 +43,8 @@ class App extends React.Component {
 			displayKey: 'name'
 		}).focus();
 
-		// write selected facebook_id to form when a place is selected
-		$(this.refs.restaurant).bind('typeahead:select', _.bind(function(e, place) {
+		// write selected facebook_id to form when a place is selected or cursor hovers over it
+		$(this.refs.restaurant).bind('typeahead:cursorchange typeahead:select', _.bind(function(e, place) {
 			$(this.refs.facebook_id).val(place.id);
 		}, this));
 	}
