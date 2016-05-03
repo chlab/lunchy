@@ -17,17 +17,12 @@ def index(request):
     	'restaurant': restaurant
     	})
 
-def add_meal(request, restaurant_id):
-	restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
-	suggestion = MealOption.get_random()
-	return render(request, 'lunch/add_meal.html', {
-		'restaurant': restaurant,
-		'suggestion': suggestion
-		})
-
 def restaurant_detail(request, restaurant_id):
 	restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
-	return render(request, 'lunch/restaurant.html', {'restaurant': restaurant})
+	return render(request, 'lunch/restaurant.html', {
+		'restaurant': restaurant,
+		'suggestion': MealOption.get_random()
+		})
 
 def add_restaurant(request):
 	if ('restaurant' in request.POST and 'facebook_id' in request.POST):

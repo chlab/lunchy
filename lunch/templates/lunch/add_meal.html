@@ -5,7 +5,7 @@
 	<h4 class="card-title">Add a meal for {{ restaurant }}</h4>
 </div>
 <div class="card-block">
-
+	
 	<form action="{% url 'lunch:add_meal' restaurant.id %}" method="post">
 		{% csrf_token %}
 

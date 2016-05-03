@@ -15,12 +15,18 @@
 			{% endfor %}
 		</ul>
 	{% else %}
-		<p>There are no meal options for this place yet. Do you want to <a class="card-link" href="{% url 'lunch:add_meal' restaurant.id %}">add one</a>?</p>
+		<p>There are no meal options for this place yet. Why not add one:</p>
 	{% endif %}
+
+	<form action="{% url 'lunch:add_restaurant' %}" method="post">
+		{% csrf_token %}
+		<fieldset class="form-group">
+		  <input type="text" id="mealOption" class="form-control" placeholder="e.g. {{suggestion|default_if_none:'Pizza'}}" autofocus>
+		</fieldset>
+	</form>
 </div>
 
 <div class="card-block">
-	<a class="card-link" href="{% url 'lunch:add_meal' restaurant.id %}">add another</a>
 	<a class="card-link" href="{% url 'lunch:index' %}">back</a>
 </div>
 
