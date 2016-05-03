@@ -10,7 +10,7 @@
 		{% csrf_token %}
 
 		<fieldset class="form-group">
-		  <input type="text" id="mealOption" class="form-control" placeholder="e.g. {{suggestion|default_if_none:'Pizza'}}">
+		  <input type="text" id="mealOption" class="form-control" placeholder="e.g. {{suggestion|default_if_none:'Pizza'}}" autofocus>
 		</fieldset>
 		
 	</form>
