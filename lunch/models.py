@@ -12,7 +12,7 @@ class MealOption(models.Model):
 	restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
 	name = models.CharField(max_length=45)
 	created_at = models.DateTimeField(auto_now_add=True)
-	def __str__(self):
+	def __unicode__(self):
 		return self.name
 
 	@staticmethod
