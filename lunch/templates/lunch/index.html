@@ -7,7 +7,14 @@
 		<h4 class="card-title">Not sure what to get for lunch?</h4>
 	</div>
 	<p class="lead">
-		How about {{ meal_option }} from <a href="{% url 'lunch:restaurant_detail' restaurant.id %}">{{ restaurant }}</a>
+		How about {{ meal_option }} from <a href="{% url 'lunch:restaurant_detail' restaurant.id %}">{{ restaurant }}</a>?
+	</p>
+{% elif restaurant %}
+	<div class="card-block">
+		<h4 class="card-title">Not sure what to get for lunch?</h4>
+	</div>
+	<p class="lead">
+		How about something from <a href="{% url 'lunch:restaurant_detail' restaurant.id %}">{{ restaurant }}</a>?
 	</p>
 {% else %}
 	<p class="lead">Sadly, there are currently no meal options available :(</p>
