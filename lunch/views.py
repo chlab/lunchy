@@ -19,12 +19,19 @@ def index(request):
 
 def restaurant_detail(request, restaurant_id):
 	restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
+
+	# save meal option
+	if ('meal_option' in request.POST):
+		meal = MealOption(restaurant=restaurant, name=request.POST['meal_option'])
+		meal.save()
+		
 	return render(request, 'lunch/restaurant.html', {
 		'restaurant': restaurant,
 		'suggestion': MealOption.get_random()
 		})
 
 def add_restaurant(request):
+	# save restaurant and redirect to index
 	if ('restaurant' in request.POST and 'facebook_id' in request.POST):
 		restaurant = Restaurant(name=request.POST['restaurant'], facebook_id=request.POST['facebook_id'])
 		restaurant.save()

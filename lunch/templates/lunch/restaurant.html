@@ -7,21 +7,27 @@
 </div>
 
 <div class="card-block">
-	{% if restaurant.mealoption_set|length %}
+	{% if restaurant.mealoption_set.exists %}
 		<p>Meal options at this place:</p>
 		<ul class="list-group">
 			{% for option in restaurant.mealoption_set.all %}
 				<li class="list-group-item">{{ option.name }}</li>
 			{% endfor %}
 		</ul>
+		<p class="m-t-2">Want to add another one:</p>
 	{% else %}
 		<p>There are no meal options for this place yet. Why not add one:</p>
 	{% endif %}
 
-	<form action="{% url 'lunch:add_restaurant' %}" method="post">
+	<form action="{% url 'lunch:restaurant_detail' restaurant.id %}" method="post">
 		{% csrf_token %}
 		<fieldset class="form-group">
-		  <input type="text" id="mealOption" class="form-control" placeholder="e.g. {{suggestion|default_if_none:'Pizza'}}" autofocus>
+			<div class="input-group">
+				<input type="text" name="meal_option" class="form-control" placeholder="e.g. {{suggestion|default_if_none:'Pizza'}}" autofocus>
+				<span class="input-group-btn">
+	          		<button class="btn btn-secondary" type="button">Add</button>
+	        	</span>
+	        </div>
 		</fieldset>
 	</form>
 </div>
