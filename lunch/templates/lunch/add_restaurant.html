@@ -2,7 +2,10 @@
 {% load staticfiles %}
 
 {% block content %}
-
+<form name="add_restaurant" action="{% url 'lunch:add_restaurant' %}" method="post">
+	{% csrf_token %}
+	<div id="search-form"></div>
+</form>
 {% endblock %}
 
 {% block javascript %}

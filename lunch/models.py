@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 class Restaurant(models.Model):
-	facebook_id = models.IntegerField()
+	facebook_id = models.BigIntegerField(unique=True)
 	name = models.CharField(max_length=100)
 	def __str__(self):
 		return str(self.facebook_id)

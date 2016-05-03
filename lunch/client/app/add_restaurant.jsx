@@ -37,10 +37,22 @@ class App extends React.Component {
 			}
 		});
 
+		// init typeahead
 		$(this.refs.restaurant).typeahead(null, {
 			source: fbApi,
 			displayKey: 'name'
 		}).focus();
+
+		// write selected facebook_id to form when a place is selected
+		$(this.refs.restaurant).bind('typeahead:select', _.bind(function(e, place) {
+			$(this.refs.facebook_id).val(place.id);
+		}, this));
+	}
+
+	save(e) {
+		$('form[name=add_restaurant]').submit();
+		e.preventDefault();
+		return false;
 	}
 
 	/**
@@ -48,15 +60,16 @@ class App extends React.Component {
 	 */
 	render() {
 		return <div>
+				<input type="hidden" name="facebook_id" ref="facebook_id" />
 				<div className="card-block">
 					<h4 className="card-title">Add a restaurant</h4>	
 				</div>
 				<div className="card-block">
 					<fieldset className="form-group">
-					  <input autocomplete="off" type="text" ref="restaurant" autofocus className="form-control" placeholder="Start typing the name of a restaurant.." />
+					  <input autocomplete="off" type="text" ref="restaurant" name="restaurant" autofocus className="form-control" placeholder="Start typing the name of a restaurant.." />
 					</fieldset>	
 					<div className="card-block">
-						<a href="#" className="card-link">add</a>
+						<a href="#" className="card-link" onClick={this.save}>add</a>
 						<a className="card-link" href="/">back</a>
 					</div>
 				</div>
@@ -71,6 +84,5 @@ window.fbAsyncInit = function() {
     xfbml      : true,
     version    : 'v2.6'
   });
-
-  render(<App/>, document.getElementById('app-container'));
+  render(<App/>, $('#search-form').get(0));
 }

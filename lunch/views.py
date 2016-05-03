@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import MealOption, Restaurant
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 def index(request):
 	# get a random meal option
@@ -22,4 +24,9 @@ def restaurant_detail(request, restaurant_id):
 	return render(request, 'lunch/restaurant.html', {'restaurant': restaurant})
 
 def add_restaurant(request):
-	return render(request, 'lunch/add_restaurant.html')
+	if ('restaurant' in request.POST and 'facebook_id' in request.POST):
+		restaurant = Restaurant(name=request.POST['restaurant'], facebook_id=request.POST['facebook_id'])
+		restaurant.save()
+		return HttpResponseRedirect(reverse('lunch:index'))
+	else:
+		return render(request, 'lunch/add_restaurant.html')
