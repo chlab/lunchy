@@ -34,6 +34,10 @@ a:active {
 	text-decoration: none;
 }
 
+#meal-suggestion {
+  height: 10rem;
+}
+
 #restaurant-pic {
   height: 250px;
 }

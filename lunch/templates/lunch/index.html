@@ -2,28 +2,33 @@
 
 {% block content %}
 
-{% if meal_option and restaurant %}
+{% if meal_option and restaurant or restaurant %}
 	<div class="card-block">
 		<h4 class="card-title">Not sure what to get for lunch?</h4>
 	</div>
-	<p class="lead">
-		How about {{ meal_option }} from <a href="{% url 'lunch:restaurant_detail' restaurant.id %}">{{ restaurant }}</a>?
-	</p>
-{% elif restaurant %}
-	<div class="card-block">
-		<h4 class="card-title">Not sure what to get for lunch?</h4>
+	<div id="meal-suggestion">
+		{% comment %} Restaurant and meal suggestion {% endcomment %}
+		{% if meal_option and restaurant %}
+			<p class="lead">
+				How about {{ meal_option }} from <a href="{% url 'lunch:restaurant_detail' restaurant.id %}">{{ restaurant }}</a>?
+			</p>
+		{% comment %} Restaurant suggestion without meal {% endcomment %}
+		{% elif restaurant %}
+			<p class="lead">
+				How about something from <a href="{% url 'lunch:restaurant_detail' restaurant.id %}">{{ restaurant }}</a>?
+			</p>
+		{% endif %}
 	</div>
-	<p class="lead">
-		How about something from <a href="{% url 'lunch:restaurant_detail' restaurant.id %}">{{ restaurant }}</a>?
-	</p>
+
+	<div class="card-block text-xs-center">
+		<a class="card-link" href="{% url 'lunch:index' %}">nope, something else</a>
+	</div>
+{% comment %} No restaurants {% endcomment %}
 {% else %}
 	<p class="lead">Sadly, there are currently no meal options available :(</p>
 	<p class="lead">Start by <a href="{% url 'lunch:add_restaurant' %}">adding one</a>!</p>
 	<!-- todo: link to add restaurants here -->
 {% endif %}
-	<div class="card-block text-xs-center">
-		<a class="card-link" href="{% url 'lunch:index' %}">nope, something else</a>
-	</div>
 
 {% endblock %}
 
