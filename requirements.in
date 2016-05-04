@@ -1,0 +1,4 @@
+-e .
+
+# debugging
+django-debug-toolbar>=1.4
