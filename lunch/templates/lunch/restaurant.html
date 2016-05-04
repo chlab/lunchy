@@ -5,13 +5,16 @@
 
 <input type="hidden" id="place-facebook-id" value="{{restaurant.facebook_id}}">
 
+<!-- facebook pic -->
 <div class="card-block text-xs-center" id="restaurant-pic">
 </div>
 
+<!-- title -->
 <div class="card-block text-xs-center">
-	<h4 class="restaurant-title card-title">{{ restaurant }}</h4>
+	<h4 class="card-title">{{ restaurant }}</h4>
 </div>
 
+<!-- meal options -->
 <div class="card-block">
 	{% if restaurant.mealoption_set.exists %}
 		<p>Meal options at this place:</p>
@@ -25,6 +28,7 @@
 		<p>There are no meal options for this place yet. Why not add one:</p>
 	{% endif %}
 
+	<!-- add meal option form -->
 	<form action="{% url 'lunch:restaurant_detail' restaurant.id %}" method="post">
 		{% csrf_token %}
 		<fieldset class="form-group">
@@ -38,7 +42,8 @@
 	</form>
 </div>
 
-<div class="card-block">
+<!-- links -->
+<div class="card-block text-xs-center">
 	<a class="card-link" href="{% url 'lunch:index' %}">back</a>
 </div>
 
