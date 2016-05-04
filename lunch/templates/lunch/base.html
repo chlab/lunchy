@@ -5,9 +5,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>Lunchy</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 	<link rel="stylesheet" href="{% static 'lunch/style.css' %}">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 </head>
 <body>
   
@@ -19,15 +19,8 @@
 
   <footer class="footer">
     <div class="container">
-      <div class="col-md-10">
-        {% block footer %}
-        {% endblock footer %}
-      </div> 
-      <div class="col-md-2">
-        <div class="pull-md-right">
-          <a title="Hack on GitHub" target="_blank" href="https://github.com/chlab/lunchy"><i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
-        </div>
-      </div>
+      {% block footer %}
+      {% endblock footer %}
     </div>
   </footer>
 
