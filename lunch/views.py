@@ -34,7 +34,9 @@ def restaurant_detail(request, restaurant_id):
 def add_restaurant(request):
 	# save restaurant and redirect to index
 	if ('restaurant' in request.POST and 'facebook_id' in request.POST):
-		restaurant = Restaurant(name=request.POST['restaurant'], facebook_id=request.POST['facebook_id'])
+		# use submitted facebook_id or default to null
+		facebook_id = request.POST['facebook_id'] if request.POST['facebook_id'] else None
+		restaurant = Restaurant(name=request.POST['restaurant'], facebook_id=facebook_id)
 		restaurant.save()
 		return HttpResponseRedirect(reverse('lunch:index'))
 	else:
