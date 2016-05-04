@@ -10,6 +10,7 @@ It's also an excuse to play around with Django, ReactJS and ES6.
 * Pip
 * MySQL
 * Setup a database (utf8) and user
+* gettext
 
 ### Installation
 Note: you probably want to do this in a virtualenv

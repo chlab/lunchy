@@ -2,8 +2,14 @@ from django.shortcuts import render, get_object_or_404
 from .models import MealOption, Restaurant
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.utils import translation
 
 def index(request):
+	# temp: set locale to de_CH as this is our target at the moment
+	user_language = 'de_CH'
+	translation.activate(user_language)
+	request.session[translation.LANGUAGE_SESSION_KEY] = user_language
+
 	# get a random restaurant
 	restaurant = Restaurant.objects.order_by('?').first()
 	# try to get a random meal, otherwise we'll just say "something" from <restaurant>

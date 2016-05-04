@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-04 17:36+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lunch/templates/lunch/index.html:8
+msgid "Not sure what to get for lunch?"
+msgstr "Hesch hunger?"
+
+#: lunch/templates/lunch/index.html:17
+#, python-format
+msgid "How about %(meal_option)s from <a href=\"%(link)s\">%(restaurant)s</a>?"
+msgstr "Wi wärs mit %(meal_option)s vo <a href=\"%(link)s\">%(restaurant)s</a>?"
+
+#: lunch/templates/lunch/index.html:23
+#, python-format
+msgid "How about something from <a href=\"%(link)s\">%(restaurant)s</a>?"
+msgstr "Wi wärs mit öpisem vo <a href=\"%(link)s\">%(restaurant)s</a>?"
+
+#: lunch/templates/lunch/index.html:30
+#, python-format
+msgid "<a class=\"card-link\" href=\"%(reload_link)s\">nope, something else</a>"
+msgstr "<a class=\"card-link\" href=\"%(reload_link)s\">lieber süsch öpis</a>"
+
+#: lunch/templates/lunch/index.html:35
+msgid "Sadly, there are currently no meal options available :("
+msgstr "Leider hani gad keni Vorschleg :("
+
+#: lunch/templates/lunch/index.html:38
+#, python-format
+msgid "Start by <a href=\"%(add_link)s\">adding one</a>!"
+msgstr "Chönntsch aber <a href=\"%(add_link)s\">eine igäh</a>!"
+
+#: lunch/templates/lunch/index.html:46
+#, python-format
+msgid "<a href=\"%(add_link)s\">Add a restaurant</a>"
+msgstr "<a href=\"%(add_link)s\">Ort itrage</a>"
