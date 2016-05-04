@@ -21,6 +21,9 @@
 	<p class="lead">Start by <a href="{% url 'lunch:add_restaurant' %}">adding one</a>!</p>
 	<!-- todo: link to add restaurants here -->
 {% endif %}
+	<div class="card-block text-xs-center">
+		<a class="card-link" href="{% url 'lunch:index' %}">nope, something else</a>
+	</div>
 
 {% endblock %}
 
