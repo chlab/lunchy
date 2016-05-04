@@ -3,9 +3,14 @@ import {render} from 'react-dom';
 import typeahead from 'typeahead.js'
 import Bloodhound from 'bloodhound-js'
 import $ from 'jquery'
-import _ from 'underscore'
+import {bind, filter, contains} from 'underscore'
+import {facebook} from './config'
 
-class App extends React.Component {
+/**
+ * This is a wrapper around twitters Typeahead library that searches
+ * nearby places to eat on facebook
+ */
+class FacebookFindAsYouType extends React.Component {
 	/**
 	 * Setup typeahead when component is mounted in dom
 	 */
@@ -17,7 +22,7 @@ class App extends React.Component {
 			center: '46.9479739,7.447446799999966',
 			distance: 5000, // in m
 			// @todo move out of this file
-			access_token: '1425312674163488|8Hpa_wPQgRhOFUsGIdKkUO7g3Pk'
+			access_token: facebook.token
 		}
 
 		var categories = ['Restaurant/cafe', 'Bar'];
@@ -30,8 +35,8 @@ class App extends React.Component {
 				wildcard: 'QUERY',
 				url: 'https://graph.facebook.com/v2.6/search?' + $.param(params),
 				transform: function(response) {
-					return _.filter(response.data, function(place) {
-						return _.contains(categories, place.category);
+					return filter(response.data, function(place) {
+						return contains(categories, place.category);
 					});
 				}
 			}
@@ -44,7 +49,7 @@ class App extends React.Component {
 		}).focus();
 
 		// write selected facebook_id to form when a place is selected or cursor hovers over it
-		$(this.refs.restaurant).bind('typeahead:cursorchange typeahead:select', _.bind(function(e, place) {
+		$(this.refs.restaurant).bind('typeahead:cursorchange typeahead:select', bind(function(e, place) {
 			$(this.refs.facebook_id).val(place.id);
 		}, this));
 	}
@@ -80,9 +85,9 @@ class App extends React.Component {
 // is it bad to bind to a window event in a module?
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '1425312674163488',  // @todo swap this out
+    appId      : facebook.appId,
     xfbml      : true,
     version    : 'v2.6'
   });
-  render(<App/>, $('#search-form').get(0));
+  render(<FacebookFindAsYouType/>, $('#search-form').get(0));
 }
