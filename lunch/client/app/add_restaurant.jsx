@@ -1,5 +1,5 @@
-import React from 'react';
-import {render} from 'react-dom';
+import React from 'react'
+import {render} from 'react-dom'
 import typeahead from 'typeahead.js'
 import Bloodhound from 'bloodhound-js'
 import $ from 'jquery'
@@ -54,6 +54,9 @@ class FacebookFindAsYouType extends React.Component {
 		}, this));
 	}
 
+	/**
+	 * Submit form and save restaurant
+	 */
 	save(e) {
 		$('form[name=add_restaurant]').submit();
 		e.preventDefault();
@@ -82,7 +85,7 @@ class FacebookFindAsYouType extends React.Component {
   }
 }
 
-// is it bad to bind to a window event in a module?
+// not sure how to do this nicer
 window.fbAsyncInit = function() {
   FB.init({
     appId      : facebook.appId,
