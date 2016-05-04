@@ -23,6 +23,7 @@ def restaurant_detail(request, restaurant_id):
 	# save meal option
 	if ('meal_option' in request.POST):
 		restaurant.mealoption_set.create(name=request.POST['meal_option'])
+		return HttpResponseRedirect(reverse('lunch:restaurant_detail', kwargs={'restaurant_id':restaurant_id}))
 		
 	return render(request, 'lunch/restaurant.html', {
 		'restaurant': restaurant,
