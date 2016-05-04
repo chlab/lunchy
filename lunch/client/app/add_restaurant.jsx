@@ -25,7 +25,9 @@ class FacebookFindAsYouType extends React.Component {
 			access_token: facebook.token
 		}
 
-		var categories = ['Restaurant/cafe', 'Bar'];
+		var categories = ['Restaurant/cafe', 'Bar', 'Cafe'];
+		// possible improvement: also include "Local business",
+		// then search data.category_list for all these categories again
 
 		// setup bloodhound datasource
 		var fbApi = new Bloodhound({
