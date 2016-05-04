@@ -28,3 +28,4 @@ Note: you probably want to do this in a virtualenv
 * ~~Move variable JS stuff to it's own file~~
 * Put more info on restaurant detail page
 * Consider adding flash messages when saving stuff
+* Make a common.js bundle
