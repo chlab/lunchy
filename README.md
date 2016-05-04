@@ -29,3 +29,4 @@ Note: you probably want to do this in a virtualenv
 * Put more info on restaurant detail page
 * Consider adding flash messages when saving stuff
 * Make a common.js bundle
+* Improve restaurant suggestion so you don't get the same restaurants all the time
