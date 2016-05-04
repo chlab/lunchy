@@ -16,6 +16,10 @@ body, .card, .list-group-item {
 	font-weight: normal;
 	margin: 0;
 }
+#app-container .card-title.restaurant-title {
+  font-size: 1.8rem;
+}
+
 #app-container .lead {
 	font-size: 2rem;
 	margin-top: 1rem;
@@ -28,6 +32,19 @@ a:hover,
 a:active {
 	color: #333;
 	text-decoration: none;
+}
+
+#restaurant-pic {
+  height: 250px;
+}
+
+.img-circle-wrapper {
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, .5);
+  padding: 3px;
+  display: inline-block;
+  opacity: 0;
 }
 
 /**
