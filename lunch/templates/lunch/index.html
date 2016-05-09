@@ -13,12 +13,12 @@
 		{% comment %} Restaurant and meal suggestion {% endcomment %}
 		{% if meal_option and restaurant %}
 			<p class="lead">
-				{% blocktrans %}How about {{ meal_option }} from <a href="{{ link }}">{{ restaurant }}</a>?{% endblocktrans %}
+				{% blocktrans %}How about {{ meal_option }} from <a href="{{ restaurant_link }}">{{ restaurant }}</a>?{% endblocktrans %}
 			</p>
 		{% comment %} Restaurant suggestion without meal {% endcomment %}
 		{% elif restaurant %}
 			<p class="lead">
-				{% blocktrans %}How about something from <a href="{{ link }}">{{ restaurant }}</a>?{% endblocktrans %}
+				{% blocktrans %}How about something from <a href="{{ restaurant_link }}">{{ restaurant }}</a>?{% endblocktrans %}
 			</p>
 		{% endif %}
 	</div>
