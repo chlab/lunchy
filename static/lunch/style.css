@@ -1,5 +1,5 @@
 body, .card, .list-group-item {
-	background-color: #D44D5C;
+	background-color: #66CED6;
 }
 #app-container {
 	margin: 15% auto 0 auto;
@@ -26,7 +26,7 @@ body, .card, .list-group-item {
 	font-weight: bold;
 }
 a {
-	color: #DDC9B4;
+	color: #0C4D8B;
 }
 a:hover,
 a:active {
