@@ -3,38 +3,7 @@
 
 {% block content %}
 
-{% if meal_option and restaurant or restaurant %}
-	<div class="card-block">
-		<h4 class="card-title">{% trans "Not sure what to get for lunch?" %}</h4>
-	</div>
-	<div id="meal-suggestion">
-		{% url 'lunch:restaurant_detail' restaurant.id as restaurant_link %}
 
-		{% comment %} Restaurant and meal suggestion {% endcomment %}
-		{% if meal_option and restaurant %}
-			<p class="lead">
-				{% blocktrans %}How about {{ meal_option }} from <a href="{{ restaurant_link }}">{{ restaurant }}</a>?{% endblocktrans %}
-			</p>
-		{% comment %} Restaurant suggestion without meal {% endcomment %}
-		{% elif restaurant %}
-			<p class="lead">
-				{% blocktrans %}How about something from <a href="{{ restaurant_link }}">{{ restaurant }}</a>?{% endblocktrans %}
-			</p>
-		{% endif %}
-	</div>
-
-	<div class="card-block text-xs-center">
-		{% url 'lunch:index' as reload_link %}
-		{% blocktrans %}<a class="card-link" href="{{ reload_link }}">nope, something else</a>{% endblocktrans %}
-	</div>
-{% comment %} No restaurants {% endcomment %}
-{% else %}
-	<p class="lead">{% trans "Sadly, there are currently no meal options available :(" %}</p>
-	{% url 'lunch:add_restaurant' as add_link %}
-	<p class="lead">
-		{% blocktrans %}Start by <a href="{{ add_link }}">adding one</a>!{% endblocktrans %}
-	</p>
-{% endif %}
 
 {% endblock %}
 
