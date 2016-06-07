@@ -1,5 +1,4 @@
 import React from 'react'
-import {render} from 'react-dom'
 import 'typeahead.js'
 import Bloodhound from 'bloodhound-js'
 import $ from 'jquery'
@@ -10,7 +9,7 @@ import {facebook} from './config'
  * This is a wrapper around twitters Typeahead library that searches
  * nearby places to eat on facebook
  */
-class FacebookFindAsYouType extends React.Component {
+export default class FacebookFindAsYouType extends React.Component {
 	/**
 	 * Setup typeahead when component is mounted in dom
 	 */
@@ -77,14 +76,4 @@ class FacebookFindAsYouType extends React.Component {
 				</div>
 			</div>
   }
-}
-
-// not sure how to do this nicer
-window.fbAsyncInit = () => {
-  FB.init({
-    appId      : facebook.appId,
-    xfbml      : true,
-    version    : 'v2.6'
-  });
-  render(<FacebookFindAsYouType/>, $('#search-form').get(0));
 };

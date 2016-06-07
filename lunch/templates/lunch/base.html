@@ -5,14 +5,14 @@
 <head>
 	<meta charset="utf-8">
 	<title>Lunchy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 	<link rel="stylesheet" href="{% static 'lunch/style.css' %}">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 </head>
-<body>
+<body data-route="{{ request.resolver_match.url_name }}">
   
   <div class="container">
   	<div id="app-container" class="card">
@@ -20,14 +20,15 @@
   	</div>
   </div>
 
-  <footer class="footer">
-    <div class="container">
-      {% block footer %}
-      {% endblock footer %}
-    </div>
-  </footer>
+    <footer class="footer">
+        <div class="container">
+            {% block footer %}
+            {% endblock footer %}
+        </div>
+    </footer>
 
-  {% block javascript %}
-  {% endblock javascript %}
+    <script src="{% static "lunch/app.js" %}"></script>
+    {% block javascript %}
+    {% endblock javascript %}
 </body>
 </html>
