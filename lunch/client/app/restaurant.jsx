@@ -23,7 +23,7 @@ class DynamicImage extends React.Component {
 }
 
 // is it bad to bind to a window event in a module?
-window.fbAsyncInit = function() {
+window.fbAsyncInit = () => {
 	FB.init({
 		appId      : facebook.appId,
 		xfbml      : true,
@@ -43,4 +43,4 @@ window.fbAsyncInit = function() {
   	access_token: facebook.token
   }, function(r) {
   })*/
-}
+};

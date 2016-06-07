@@ -1,6 +1,6 @@
 import React from 'react'
 import {render} from 'react-dom'
-import typeahead from 'typeahead.js'
+import 'typeahead.js'
 import Bloodhound from 'bloodhound-js'
 import $ from 'jquery'
 import {bind, filter, contains} from 'underscore'
@@ -21,9 +21,8 @@ class FacebookFindAsYouType extends React.Component {
 			// @todo get location from geolocation api
 			center: '46.9479739,7.447446799999966',
 			distance: 5000, // in m
-			// @todo move out of this file
 			access_token: facebook.token
-		}
+		};
 
 		var categories = ['Restaurant/cafe', 'Bar', 'Cafe'];
 		// possible improvement: also include "Local business",
@@ -36,10 +35,8 @@ class FacebookFindAsYouType extends React.Component {
 			remote: {
 				wildcard: 'QUERY',
 				url: 'https://graph.facebook.com/v2.6/search?' + $.param(params),
-				transform: function(response) {
-					return filter(response.data, function(place) {
-						return contains(categories, place.category);
-					});
+				transform: (response) => {
+					return filter(response.data, (place) => contains(categories, place.category));
 				}
 			}
 		});
@@ -51,9 +48,9 @@ class FacebookFindAsYouType extends React.Component {
 		}).focus();
 
 		// write selected facebook_id to form when a place is selected or cursor hovers over it
-		$(this.refs.restaurant).bind('typeahead:cursorchange typeahead:select', bind(function(e, place) {
+		$(this.refs.restaurant).bind('typeahead:cursorchange typeahead:select', (e, place) => {
 			$(this.refs.facebook_id).val(place.id);
-		}, this));
+		});
 	}
 
 	/**
@@ -83,11 +80,11 @@ class FacebookFindAsYouType extends React.Component {
 }
 
 // not sure how to do this nicer
-window.fbAsyncInit = function() {
+window.fbAsyncInit = () => {
   FB.init({
     appId      : facebook.appId,
     xfbml      : true,
     version    : 'v2.6'
   });
   render(<FacebookFindAsYouType/>, $('#search-form').get(0));
-}
+};
