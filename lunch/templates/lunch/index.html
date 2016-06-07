@@ -3,7 +3,11 @@
 
 {% block content %}
 
-{% include "lunch/meal_suggestion.html" %}
+    {% if place %}
+        {% include "lunch/meal_suggestion.html" %}
+    {% else %}
+        {% include "lunch/place_prompt.html" %}
+    {% endif %}
 
 {% endblock %}
 

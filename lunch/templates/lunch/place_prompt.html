@@ -1,0 +1,12 @@
+{% load i18n %}
+
+<div class="card-block">
+    <div class="card-title">{% trans "Where are you?" %}</div>
+</div>
+
+<div class="card-block">
+    <form name="set_place" action="{% url 'lunch:index' %}" method="post">
+        {% csrf_token %}
+        <div id="place-search"></div>
+    </form>
+</div>

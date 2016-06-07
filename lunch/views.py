@@ -11,6 +11,10 @@ def index(request):
     translation.activate(user_language)
     request.session[translation.LANGUAGE_SESSION_KEY] = user_language
 
+    place = None
+    if 'place' in request.session:
+        place = request.session['place']
+
     # get a random restaurant
     restaurant = Restaurant.objects.order_by('?').first()
     # try to get a random meal, otherwise we'll just say "something" from <restaurant>
@@ -21,7 +25,8 @@ def index(request):
 
     return render(request, 'lunch/index.html', {
         'meal_option': meal,
-        'restaurant': restaurant
+        'restaurant': restaurant,
+        'place': place
         })
 
 
