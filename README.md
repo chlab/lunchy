@@ -25,7 +25,7 @@ Note: you probably want to do this in a virtualenv
 
 * Get location from user or browser
 * Allow user to narrow the search radius (currently at 5km)
-* Add translations
+* Implement translations everywhere (including jsx files)
 * ~~Move variable JS stuff to it's own file~~
 * Put more info on restaurant detail page
 * Consider adding flash messages when saving stuff
